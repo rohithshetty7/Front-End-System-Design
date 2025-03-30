@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+
 
 module.exports = {
   mode: 'development',
@@ -23,6 +25,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new CompressionPlugin({ algorithm: 'gzip' }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src', 'index.html'),
     }),
